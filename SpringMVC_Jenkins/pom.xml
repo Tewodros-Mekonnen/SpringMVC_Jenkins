@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.tewodros_mekonnen</groupId>
+  <artifactId>springMVCJenkins</artifactId>
+  <version>1.0</version>
+  <packaging>war</packaging>
+
+  <name>SpringMVC_Jenkins Maven Webapp</name>
+  <!-- FIXME change it to the project's website -->
+  <!-- <url>http://www.example.com</url> -->
+
+  <properties>
+  
+	  
+	    
+	    <springframework.version>5.2.6.RELEASE</springframework.version>
+		<springsecurity.version>5.3.3.RELEASE</springsecurity.version>
+	
+		<hibernate.version>5.4.18.Final</hibernate.version>
+	       <mysql.connector.version>8.0.21</mysql.connector.version>
+		<c3po.version>0.9.5.5</c3po.version>
+	    
+	    <maven.compiler.source>1.8</maven.compiler.source>
+	    <maven.compiler.target>1.8</maven.compiler.target>
+	    
+	   
+	    
+  </properties>
+
+  <dependencies>
+  
+  <!-- Spring MVC support -->
+		<dependency> <!-- ok -->
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+		
+		<dependency> <!-- ok -->
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+
+		<!-- Spring Security -->
+		<!-- spring-security-web and spring-security-config -->
+		
+		<dependency> <!-- ok -->
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-web</artifactId>
+		    <version>${springsecurity.version}</version>
+		</dependency>
+		
+		<dependency> <!-- ok -->
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-config</artifactId>
+		    <version>${springsecurity.version}</version>
+		</dependency>	
+		
+		<dependency> <!-- ok -->
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>5.3.3.RELEASE</version>
+		</dependency>
+		
+		<!-- Add Spring Security Taglibs support -->
+		<dependency> <!-- ok -->
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-taglibs</artifactId>
+		    <version>${springsecurity.version}</version>
+		</dependency>	
+
+		<!-- Servlet, JSP and JSTL support -->
+		<dependency> <!-- this dependency is important since we are using all java configuration-->
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version>
+		</dependency>
+
+		<dependency> <!-- version ok -->
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>javax.servlet.jsp-api</artifactId>
+			<version>2.3.3</version>
+		</dependency>
+
+		<dependency> <!-- version ok -->
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<dependency> <!-- version ok -->
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+			<version>4.12</version>
+		</dependency>
+
+        <!-- Spring Transactions -->
+        <dependency> <!-- version ok -->
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+             <scope>compile</scope>
+            <version>${springframework.version}</version>
+        </dependency>
+        
+        <!-- Spring ORM -->
+        <dependency> <!-- latest version shows 5.2.8.RELEASE -->
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${springframework.version}</version>
+        </dependency>
+
+ 		<!-- Hibernate Core -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+
+        <!-- MySQL -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.connector.version}</version>
+        </dependency>
+ 
+        <!-- C3PO -->
+        <dependency>
+            <groupId>com.mchange</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>${c3po.version}</version>
+        </dependency>
+        
+        <dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+
+		<!-- Hibernate Validator -->
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		    <version>6.0.7.Final</version>
+		</dependency>
+
+		<!-- to compensate for java 9 not including jaxb -->
+		<dependency>
+		    <groupId>javax.xml.bind</groupId>
+		    <artifactId>jaxb-api</artifactId>
+		    <version>2.3.1</version>
+		</dependency>
+		
+		
+		
+  
+    
+    
+  </dependencies>
+
+  <build>
+    <finalName>springMVC_jenkins</finalName>
+    
+      <plugins>
+
+			<!-- Builds a Web Application Archive (WAR) file from the project output 
+				and its dependencies. -->
+			<plugin>
+				<!-- Add Maven coordinates (GAV) for: maven-war-plugin -->
+				<!-- this plugin is important since we are not using web.xml! -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.3.1</version>
+			</plugin>
+			
+			
+
+		</plugins>
+   
+  </build>
+</project>
